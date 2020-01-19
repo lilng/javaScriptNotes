@@ -1,15 +1,15 @@
-javaScript数组去重的不同方法
-1. 利用set数据结构去重
-1.1 扩展符形式...
+// javaScript数组去重的不同方法
+// 1. 利用set数据结构去重
+// 1.1 扩展符形式...
 Array.prototype.unique = function() {
   return [...new Set(this)];
 }
-1.2 Array.from形式
+//1.2 Array.from形式
 Array.prototype.unique = function() {
   return Array.from(new Set(this));
 }
-2. 利用index/lastIndexOf 
-2.1 遍历当前数组,没有重复的元素剔除放入新数组
+// 2. 利用index/lastIndexOf 
+// 2.1 遍历当前数组,没有重复的元素剔除放入新数组
 Array.prototype.unique = function() {
   let arr = [];
   this.map( e => {
@@ -19,7 +19,7 @@ Array.prototype.unique = function() {
   });
   return arr;
 }
-2.2 遍历当前数组,当前数的位序刚好是第一次遍历到的位置（当前数唯一）
+//2.2 遍历当前数组,当前数的位序刚好是第一次遍历到的位置（当前数唯一）
 Array.prototype.unique = function() {
   let arr = [];
 	this.forEach((e,idx)=>{
@@ -29,7 +29,7 @@ Array.prototype.unique = function() {
 	});
 	return arr;
 }
-2.3 正反序遍历的位置相同(当前数唯一)
+// 2.3 正反序遍历的位置相同(当前数唯一)
 Array.prototype.unique = function() {
   let arr = [];
   this.forEach( e => {
@@ -38,14 +38,14 @@ Array.prototype.unique = function() {
     }
   });
 }
-3. 利用include方法
+// 3.利用include方法
 Array.prototype.unique = function() {
   let arr = [];
   arr = this.filter(e=>{
     return arr.includes(e)? '':arr.push(e);
   });
 }
-4. 利用排序
+// 4.利用排序
 Array.prototype.unique = function() {
   let arr=[this[0]];
 	this.sort();
@@ -57,7 +57,7 @@ Array.prototype.unique = function() {
 	return arr;
 }
 
-5. 利用splice
+// 5.利用splice
 Array.prototype.unique = function(){
 	let len = this.length;
 	for(let i=0;i<len-1;i++){
@@ -72,7 +72,7 @@ Array.prototype.unique = function(){
 	return this;
 }
 
-6.利用对象属性
+// 6.利用对象属性
 Array.prototype.unique = function(){
 	let obj ={},arr=[];
 	this.forEach(e=>{
