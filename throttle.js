@@ -24,6 +24,7 @@ function throttle(func,wait){
         if(!timer){
             timer = setTimeout(function(){
                 func.apply(ctx,args);
+                timer = null;
             },wait)
         }
     }
